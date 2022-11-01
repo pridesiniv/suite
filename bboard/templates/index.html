@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Home: Bulletin Board</title>
+    </head>
+    <body>
+        <h1>Announcements</h1>
+        {% for bb in bbs %}
+        <div>
+            <h2> {{bb.title}}</h2>
+            <p> {{bb.content}}</p>
+            <p> {{bb.published|date:'d.m.Y'}}</p>
+        </div>
+        {% endfor %}
+    </body>
+</html>
