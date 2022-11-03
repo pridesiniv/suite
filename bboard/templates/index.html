@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Home: Bulletin Board</title>
-    </head>
-    <body>
-        <h1>Announcements</h1>
-        <div>
-            <a href="{% url 'index' %}">Home</a>
-            {% for rubric in rubrics %}
-            <a href="{% url 'by_rubric' rubric.pk %}">{{ rubric.name }}</a>
-            {% endfor %}
-        </div>
-        {% for bb in bbs %}
+{% extends 'layout.html' %}
+
+{% block content %}
+{% for bb in bbs %}
         <div>
             <h2> {{bb.title}}</h2>
             <p> {{bb.content}}</p>
@@ -20,9 +9,7 @@
             <p><a href="{% url 'by_rubric' rubric.pk %}">
                 {% endfor %}
                 {{ bb.rubric.name }}</a></p>
-
             <p> {{ bb.published|date:"d m Y (D)"}}</p>
         </div>
         {% endfor %}
-    </body>
-</html>
+{% endblock %}
